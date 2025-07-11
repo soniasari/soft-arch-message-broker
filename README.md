@@ -103,7 +103,7 @@ INSERT INTO tax_payments (vehicle_id, payment_date, amount, tax_year, payment_me
 
 Ensure that you have `uv` installed  [see here](https://docs.astral.sh/uv/getting-started/installation/)
 
-Now create a .env file with the following content:
+Now create a `.env` file with the following content:
 
 ```env
 DATABASE_URL=mysql+pymysql://root:123456@localhost:3306/vehicle_tax_db
