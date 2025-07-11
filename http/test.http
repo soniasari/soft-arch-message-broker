@@ -1,0 +1,44 @@
+### Create a new payment
+POST http://localhost:8000/api/v1/payments/
+Content-Type: application/json
+
+{
+    "plate": "ABC123",
+    "state_code": "CA",
+    "tax_year": 2024,
+    "payment_method": "credit_card"
+}
+
+### Get payment history by plate and state
+GET http://localhost:8000/api/v1/payments/ABC123/CA
+
+### Get payments for a different vehicle
+GET http://localhost:8000/api/v1/payments/DEF456/TX
+
+### Create payment for motorcycle
+POST http://localhost:8000/api/v1/payments/
+Content-Type: application/json
+
+{
+    "plate": "GHI789",
+    "state_code": "TX",
+    "tax_year": 2024,
+    "payment_method": "bank_transfer"
+}
+
+### Health check
+GET http://localhost:8000/api/v1/health
+
+### Try to create duplicate payment (should fail)
+POST http://localhost:8000/api/v1/payments/
+Content-Type: application/json
+
+{
+    "plate": "ABC123",
+    "state_code": "CA",
+    "tax_year": 2024,
+    "payment_method": "cash"
+}
+
+### Get payments for non-existent vehicle (should return 404)
+GET http://localhost:8000/api/v1/payments/NONEXISTENT/CA
